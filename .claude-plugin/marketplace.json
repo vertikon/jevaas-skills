@@ -1,0 +1,12 @@
+{
+  "name": "jevaas",
+  "description": "Skills para construir com o JEVaaS: decisão tipada, roteada e auditável.",
+  "owner": { "name": "Vertikon", "url": "https://jevaas.com.br" },
+  "plugins": [
+    {
+      "name": "jevaas",
+      "description": "Quando usar o JEVaaS, como escrever perguntas e contratos, e como ler a rota antes de agir.",
+      "source": "./"
+    }
+  ]
+}
