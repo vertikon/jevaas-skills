@@ -50,6 +50,20 @@ barra de confiança e regras de rota. A resposta traz `route`, `enforced`, `allo
 `receipt_id`. Comece em `mode: "shadow"` (mede sem autorizar) e promova para `enforce` só com
 calibração medida.
 
+## Escolher o modelo
+
+O JEVaaS oferece dois modelos de decisão, com o mesmo preço por token. `GET /v1/models` (SDK
+`models()`, MCP `jev_models`) lista os disponíveis; escolha com `model` no fanout ou no contrato.
+
+| | Jev (`typesafe/jev-1.13.0`, padrão) | Drex (`nace/drex-latest`) |
+|---|---|---|
+| Perfil medido em PT | mais sensível: pega 81% dos casos, age em 15% dos inofensivos | conservador: pega 50%, age em só 2,7% dos inofensivos |
+| Tokens por decisão | ~370 | ~70 |
+
+Escolha pelo erro que custa mais caro: deixar passar → Jev; agir por engano → Drex. No Drex,
+`instructions` e cada descrição de `criteria` precisam ser **texto** (o JEVaaS recusa antes: 422 no
+contrato, 400 no fanout). Comparação completa: https://jevaas.com.br/model#escolha
+
 ## Ler a rota antes de agir
 
 | Rota | O que o seu código faz |
